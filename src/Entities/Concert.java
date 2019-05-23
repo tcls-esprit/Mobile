@@ -5,7 +5,6 @@
  */
 package Entities;
 
-import java.util.Objects;
 
 /**
  *
@@ -52,25 +51,6 @@ public class Concert extends Evenement {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Concert other = (Concert) obj;
-        if (!Objects.equals(this.artistes, other.artistes)) {
-            return false;
-        }
-        if (!Objects.equals(this.type_concert, other.type_concert)) {
-            return false;
-        }
-        return true;
-    }
+
     
 }

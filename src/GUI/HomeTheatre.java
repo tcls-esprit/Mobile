@@ -5,13 +5,13 @@
  */
 package GUI;
 
-import Entite.CommentaireTheatre;
-import Entite.SessionTheatre;
-import Entite.Theatre;
-import Service.CommentaireTheatreService;
-import Service.SessionService;
+import Entities.CommentaireTheatre;
+import Entities.SessionTheatre;
+import Entities.Theatre;
+import Services.CommentaireTheatreService;
+import Services.SessionService;
 
-import Service.TheatreService;
+import Services.TheatreService;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
@@ -183,14 +183,23 @@ public class HomeTheatre {
         }
         
         
+                         fhome.getToolbar().addCommandToOverflowMenu("Home", null, (ActionListener) (ActionEvent evt) -> {
+             ProfileView lo = new ProfileView(fhome) {
+                @Override
+                protected void showOtherForm(Resources res) {
+                }
+            } ; 
+                    lo.getContainer().show();
                 
-         fhome.getToolbar().addCommandToOverflowMenu("LogOUt", null, (ActionListener) (ActionEvent evt) -> {
-             LoginStatic ls = new LoginStatic() {
-                 @Override
-                 protected void showOtherForm(Resources res) {
-                  }
-             };
-             ls.getF().show();
+        });
+         fhome.getToolbar().addCommandToOverflowMenu("LogOUt", null,  new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                Login l = new Login(this.getClass());
+                l.show();
+                
+            }
         });
          
          fhome.getToolbar().addCommandToOverflowMenu("Vos Favoris", null, (ActionListener) (ActionEvent evt) -> {

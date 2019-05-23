@@ -106,10 +106,10 @@ public class ServiceEvent {
                 System.out.println(obj.get("idUser"));
                 if (obj.get("idUser")!=null)
                 {
-                    String s =obj.get("idUser").toString();
-                    s=s.substring(4, s.indexOf("."));
-                    float f =Float.parseFloat(s);
-                    id_user = Math.round(f);
+                               id_user = Float.parseFloat(((Map<String, Object>)obj.get("idUser")).get("id").toString());
+
+                   // float f =Float.parseFloat(s);
+                    //id_user = Math.round(f);
                 }   
                 else
                     id_user = 0;
@@ -157,10 +157,8 @@ public class ServiceEvent {
                 float duree = Float.parseFloat(obj.get("duree").toString());
                 if (obj.get("idUser")!=null)
                 {
-                    String s =obj.get("idUser").toString();
-                    s=s.substring(4, s.indexOf("."));
-                    float f =Float.parseFloat(s);
-                    id_user = Math.round(f);
+                                            id_user = Float.parseFloat(((Map<String, Object>)obj.get("idUser")).get("id").toString());
+
                 }   
                 else
                     id_user = 0;
@@ -207,10 +205,8 @@ public class ServiceEvent {
                 System.out.println(obj.get("idUser"));
                 if (obj.get("idUser")!=null)
                 {
-                    String s =obj.get("idUser").toString();
-                    s=s.substring(4, s.indexOf("."));
-                    float f =Float.parseFloat(s);
-                    id_user = Math.round(f);
+                                              id_user = Float.parseFloat(((Map<String, Object>)obj.get("idUser")).get("id").toString());
+
                 }   
                 else
                     id_user = 0;

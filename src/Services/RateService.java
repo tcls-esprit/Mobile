@@ -31,7 +31,7 @@ public class RateService {
     
     public void ajoutRate(Rate ta ) {
         ConnectionRequest con = new ConnectionRequest();// création d'une nouvelle demande de connexion
-        String Url = "http://localhost/P/CDLC/web/app_dev.php/newrate?ratee=" + ta.getRatee() +"&idfilm=" + ta.getIdfilm();
+        String Url = "http://localhost/CDLC/web/app_dev.php/newrate?ratee=" + ta.getRatee() +"&idfilm=" + ta.getIdfilm();
                 // création de l'URL
      
         con.setUrl(Url);// Insertion de l'URL de notre demande de connexion
@@ -82,7 +82,7 @@ public class RateService {
     ArrayList<Rate> listFilms = new ArrayList<>();
     public ArrayList<Rate> getList2(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/P/CDLC/web/app_dev.php/rateaff");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/rateaff");  
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {

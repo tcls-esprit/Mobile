@@ -8,7 +8,7 @@ package GUI;
 import Entities.Produit;
 import Services.ServiceCart;
 import Services.ServiceProduit;
-import Store.Main;
+import Services.userService;
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.Button;
 import com.codename1.ui.Dialog;
@@ -60,7 +60,7 @@ public class SingleProduct extends Form {
         
         ServiceProduit ps = new ServiceProduit();
         System.out.println(c.getId());
-        Produit x = ps.isLiked(c.getId(), Main.MemberId);
+        Produit x = ps.isLiked(c.getId(), userService.LoggedUser.getUserId());
         //FavIcon Full if its liked already
         Label like = new Label("");
         if(x.getName().equalsIgnoreCase("yes")){
@@ -112,9 +112,9 @@ public class SingleProduct extends Form {
                 if(price.getProgress() > 1){
                 double d = c.getPrice() * price.getProgress();
                 float amount = (float)d;
-                cartser.doAdd(Main.MemberId,c.getId(),price.getProgress(),amount);}
+                cartser.doAdd(userService.LoggedUser.getUserId(),c.getId(),price.getProgress(),amount);}
                 else{
-                cartser.doAdd(Main.MemberId,c.getId(),1,(float)c.getPrice());
+                cartser.doAdd(userService.LoggedUser.getUserId(),c.getId(),1,(float)c.getPrice());
                 }
                 Dialog.show("Info", "Product added succesfully!","Ok",null);
                 
@@ -124,17 +124,17 @@ public class SingleProduct extends Form {
         like.addPointerPressedListener((ActionListener) (ActionEvent evt) -> {
             
             ServiceProduit pss = new ServiceProduit();
-            Produit xx = pss.isLiked(c.getId(),Main.MemberId);
+            Produit xx = pss.isLiked(c.getId(),userService.LoggedUser.getUserId());
             if(xx.getName().equalsIgnoreCase("yes")){
                 Style s1 = UIManager.getInstance().getComponentStyle("ok");
                 FontImage img1 = FontImage.createMaterial(FontImage.MATERIAL_FAVORITE_BORDER, s1);
-                pss.dolikeno(c.getId(),Main.MemberId);
+                pss.dolikeno(c.getId(),userService.LoggedUser.getUserId());
                 like.setIcon(img1);
                 Dialog.show("Favorites", "Product removed from you favorites", "OK", null);
             }else{
                 Style s1 = UIManager.getInstance().getComponentStyle("ok");
                 FontImage img1 = FontImage.createMaterial(FontImage.MATERIAL_FAVORITE, s1);
-                pss.dolikeno(c.getId(),Main.MemberId);
+                pss.dolikeno(c.getId(),userService.LoggedUser.getUserId());
                 like.setIcon(img1);
                 Dialog.show("Favorites", "Product added to your favorites", "OK", null);
             }

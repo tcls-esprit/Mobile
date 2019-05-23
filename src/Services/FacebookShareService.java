@@ -31,9 +31,7 @@ public class FacebookShareService {
 
 	    @Override
 	    public void actionPerformed(ActionEvent evt) {
-		NetworkEvent ne = (NetworkEvent) evt;
-		int code = ne.getResponseCode();
-		FaceBookAccess.getInstance().removeResponseCodeListener(this);
+		
 	    }
 	});
 	FaceBookAccess.getInstance().postOnWall("me", text);

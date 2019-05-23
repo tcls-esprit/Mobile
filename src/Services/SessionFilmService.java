@@ -83,7 +83,7 @@ public class SessionFilmService {
     
     public ArrayList<SessionFilm> getList2(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/P/CDLC/web/app_dev.php/sessionfilm/all");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/sessionfilm/all");  
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {

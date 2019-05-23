@@ -7,7 +7,7 @@ package GUI;
 
 import Entities.Produit;
 import Services.ServiceFavor;
-import Store.Main;
+import Services.userService;
 import com.codename1.components.ImageViewer;
 import static com.codename1.ui.Component.BOTTOM;
 import static com.codename1.ui.Component.CENTER;
@@ -53,7 +53,7 @@ public class UserFavor extends Form{
         Label duke = new Label(dukeImage);
         Label circle = new Label(theme.getImage("flag-round-250.png"));
         Container dukeImageContainer = LayeredLayout.encloseIn(duke, circle);
-        Label name = new Label(Main.MemberNm+" "+Main.MemberLs);
+        Label name = new Label(userService.LoggedUser.getNom()+" "+userService.LoggedUser.getPrenom());
         name.setUIID("DukeName");
         Container dukeContainer = BorderLayout.west(BoxLayout.encloseY(dukeImageContainer, name));
         dukeContainer.setUIID("ProfileContainer");
@@ -75,12 +75,12 @@ public class UserFavor extends Form{
                 });
         getToolbar().addMaterialCommandToSideMenu("Log Out", 
                 FontImage.MATERIAL_LOCK_OPEN, e -> {
-                Login lo = new Login(theme);
-                lo.showBack();
+                Login lo = new Login(this.getClass());
+                lo.show();
                 });
         
         ServiceFavor serviceFavor=new ServiceFavor();
-        ArrayList<Produit> Produits = serviceFavor.getList(Main.MemberId);
+        ArrayList<Produit> Produits = serviceFavor.getList(userService.LoggedUser.getUserId());
   
         for(Produit c:Produits)
          {  

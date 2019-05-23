@@ -67,7 +67,7 @@ public class ServiceFavor {
     
     public ArrayList<Produit> getList(int idu){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/favor/"+idu);  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/khaled/favor/"+idu);  
         
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

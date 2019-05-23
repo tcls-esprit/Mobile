@@ -70,6 +70,21 @@ public class HomeEvent extends Form {
         this.getToolbar().addMaterialCommandToSideMenu("Postuler une demande pour un événement", FontImage.MATERIAL_ADD, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
+               ProfileView lo = new ProfileView(cc) {
+                @Override
+                protected void showOtherForm(Resources res) {
+                }
+            } ; 
+                    lo.getContainer().show();
+                }
+                //FillActualite f = new FillActualite(theme);
+                //f.show();
+
+            
+        });
+           this.getToolbar().addMaterialCommandToSideMenu("Postuler une demande pour un événement", FontImage.MATERIAL_ADD, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
                 AjoutEvent ae = new AjoutEvent();
                 ae.getF().show();
                 //FillActualite f = new FillActualite(theme);
@@ -103,7 +118,7 @@ public class HomeEvent extends Form {
 
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Login l = new Login();
+                Login l = new Login(this.getClass());
                 l.show();
                 
             }

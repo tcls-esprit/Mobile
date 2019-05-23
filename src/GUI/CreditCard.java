@@ -9,7 +9,7 @@ import Entities.Cart;
 import Entities.Produit;
 import Services.PaymentServices;
 import Services.ServiceCart;
-import Store.Main;
+import Services.userService;
 import com.codename1.ui.Button;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
@@ -73,7 +73,7 @@ public class CreditCard extends Form {
         submit.addActionListener((ActionListener) (ActionEvent evt) -> {
             try {
                 ServiceCart serviceCart=new ServiceCart();
-                ArrayList<Cart> Items = serviceCart.getList(Main.MemberId);
+                ArrayList<Cart> Items = serviceCart.getList(userService.LoggedUser.getUserId());
                 double amount = 0.0;
         
                 for(Cart c:Items)
@@ -102,7 +102,7 @@ public class CreditCard extends Form {
                         String Token = payout.createToken(firstName.getText(), num1.getText()+num2.getText()+num3.getText()+num4.getText(), num5.getText(), num6.getText(), num7.getText());
                         payout.chargeCreditCard(amount, Token);
                         
-                        Items = serviceCart.getList(Main.MemberId);
+                        Items = serviceCart.getList(userService.LoggedUser.getUserId());
                         
                         for(Cart c:Items)
                         {

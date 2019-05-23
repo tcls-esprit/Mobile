@@ -39,7 +39,7 @@ public class FilmfavView {
         
          form = new Form(BoxLayout.x());
                 Toolbar tb1 = form.getToolbar();
-                 tb1.addCommandToOverflowMenu("retour", null,new ActionListener() 
+                 tb1.addCommandToOverflowMenu("Back", null,new ActionListener() 
             {
                 @Override
                 public void actionPerformed(ActionEvent evt) 
@@ -69,7 +69,7 @@ public class FilmfavView {
 if (lii.getId()==li.getIdfilm()){
             Container c = new Container(BoxLayout.y());
            
-            Label aa = new Label("Film favoris : " +   lii.getTitre() );
+            Label aa = new Label("favorite Film : " +   lii.getTitre() );
             Image placeholder1 = Image.createImage(500, 500);
                 EncodedImage en = EncodedImage.createFromImage(placeholder1, false);
                 URLImage urli = URLImage.createToStorage(en, lii.getImage(), url + "/" + lii.getImage());
@@ -98,7 +98,7 @@ if (lii.getId()==li.getIdfilm()){
             servv.supprimerfav(li.getId());
            //Double.valueOf(createStarRankSlider().getProgress())
               //R1 = new Label("Rate :" + createStarRankSlider().getProgress() );  
-              
+              form.show();
 
         });
            

@@ -69,7 +69,7 @@ public class FilmfavService {
     
     public ArrayList<Filmfav> getList2(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/P/CDLC/web/app_dev.php/allfav");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/allfav");  
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
@@ -84,7 +84,7 @@ public class FilmfavService {
     
     public void Favoris(Filmfav f ) {
         ConnectionRequest con = new ConnectionRequest();// création d'une nouvelle demande de connexion
-        String Url = "http://localhost/P/CDLC/web/app_dev.php/newfav?iduser=" + 4 +"&idfilm=" + f.getIdfilm();
+        String Url = "http://localhost/CDLC/web/app_dev.php/newfav?iduser=" + 4 +"&idfilm=" + f.getIdfilm();
                 // création de l'URL
      
         con.setUrl(Url);// Insertion de l'URL de notre demande de connexion
@@ -99,7 +99,7 @@ public class FilmfavService {
     
     public void supprimerfav(int id) {
         ConnectionRequest con = new ConnectionRequest();
-        String Url = "http://localhost/P/CDLC/web/app_dev.php/deletefav/" + id;
+        String Url = "http://localhost/CDLC/web/app_dev.php/deletefav/" + id;
         con.setUrl(Url);
         con.addResponseListener((ee) -> {
             String str = new String(con.getResponseData());

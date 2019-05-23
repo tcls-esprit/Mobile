@@ -44,6 +44,7 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.Border;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
+import com.codename1.ui.spinner.Picker;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -66,6 +67,29 @@ public class SessionFilmView {
          
         cc.setScrollableY(true);
         
+        
+        
+          Picker p=new Picker();
+            Button b=new Button("Filter");
+            
+            cc.add(p);
+            cc.add(b);
+          b.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent evt) {
+                 Liste l=new Liste(p.getText());
+                 Form films = new Form("", BoxLayout.y());
+                 films.add(l.getF5());
+                 films.show();
+                 System.out.println(p.getText());
+                 
+             }
+         });
+        
+        
+        
+        
+        
         SessionFilmService SP = new SessionFilmService();
         FilmService SP2 = new FilmService();
          ArrayList<Film> lis2 = SP2.getList2();
@@ -80,9 +104,9 @@ public class SessionFilmView {
             
         
            
-            Label aa = new Label("Film : " +   lii.getTitre());
+            Label aa = new Label("Movie : " +   lii.getTitre());
             
-            Label desc2 = new Label("Heure : " + li.getHeure());
+            Label desc2 = new Label("Time : " + li.getHeure());
 
             Label desc = new Label("Date : " + li.getDate().toString());
             
@@ -108,6 +132,7 @@ c.add(aa);
             c.add(des);
             
             //f.add(c);
+        
             cc.add(c);
 
             

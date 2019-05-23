@@ -66,7 +66,7 @@ public class FilmService {
     ArrayList<Film> listFilms = new ArrayList<>();
     public ArrayList<Film> getList2(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/P/CDLC/web/app_dev.php/films/all");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/Films/all");  
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {

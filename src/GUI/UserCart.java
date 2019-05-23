@@ -8,7 +8,7 @@ package GUI;
 import Entities.Cart;
 import Entities.Produit;
 import Services.ServiceCart;
-import Store.Main;
+import Services.userService;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
@@ -70,7 +70,7 @@ public class UserCart extends Form {
         
         //Retrieve Items 
         ServiceCart serviceCart=new ServiceCart();
-        ArrayList<Cart> Items = serviceCart.getList(Main.MemberId);
+        ArrayList<Cart> Items = serviceCart.getList(userService.LoggedUser.getUserId());
         
         //Adding each item's row
         for(Cart c:Items)

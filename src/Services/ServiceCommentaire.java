@@ -83,15 +83,12 @@ public class ServiceCommentaire {
 
             for (Map<String, Object> obj : response) {
                 
-                int id_user;
+                float id_user;
                 float id_event;
                 float id = Float.parseFloat(obj.get("id").toString());
-                String s=obj.get("idUser").toString();
+                               id_user = Float.parseFloat(((Map<String, Object>)obj.get("idUser")).get("id").toString());
              
-                s=s.substring(4, s.indexOf("."));
            
-                    float f =Float.parseFloat(s);
-                    id_user = Math.round(f);
 //                System.out.println(id_user);
                 
                 
@@ -106,7 +103,7 @@ public class ServiceCommentaire {
                                 
                                 (String) obj.get("owner"),
                                 (String) obj.get("image"),
-                                id_user
+                                (int)id_user
                                 
                         ));
             }

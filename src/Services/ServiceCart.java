@@ -65,7 +65,7 @@ public class ServiceCart {
     
     public ArrayList<Cart> getList(int idu){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/cart/"+idu);  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/khaled/cart/"+idu);  
         
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -80,14 +80,14 @@ public class ServiceCart {
     
     public void doAdd(int idu, int prodId, int qty, float price){
         ConnectionRequest con = new ConnectionRequest();
-        String url = "http://localhost/CDLC/web/app_dev.php/service/"+idu+"/"+prodId+"/"+qty+"/"+price;
+        String url = "http://localhost/CDLC/web/app_dev.php/service/khaled/"+idu+"/"+prodId+"/"+qty+"/"+price;
         con.setUrl(url);
         NetworkManager.getInstance().addToQueueAndWait(con);
     }
     
     public void doRemove(int id){
         ConnectionRequest con = new ConnectionRequest();
-        String url = "http://localhost/CDLC/web/app_dev.php/service/remove/"+id;
+        String url = "http://localhost/CDLC/web/app_dev.php/service/khaled/remove/"+id;
         con.setUrl(url);
         NetworkManager.getInstance().addToQueueAndWait(con);
     }

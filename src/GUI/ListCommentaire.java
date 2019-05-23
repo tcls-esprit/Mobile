@@ -5,8 +5,8 @@
  */
 package GUI;
 
-import Entite.CommentaireTheatre;
-import Service.CommentaireTheatreService;
+import Entities.CommentaireTheatre;
+import Services.CommentaireTheatreService;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
@@ -72,13 +72,8 @@ public class ListCommentaire {
              ls.getFhome().show();
         });
        f1.getToolbar().addCommandToOverflowMenu("LogOUt", null, (ActionListener) (ActionEvent evt) -> {
-             LoginStatic ls = new LoginStatic() {
-                 @Override
-                 protected void showOtherForm(Resources res) {
-
-                 }
-             };
-             ls.getF().show();
+            Login l  = new Login(this.getClass()) ; 
+            l.Login.show(); 
         });
     }
 

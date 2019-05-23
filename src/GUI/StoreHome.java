@@ -7,7 +7,7 @@ package GUI;
 
 import Entities.Produit;
 import Services.ServiceProduit;
-import Store.Main;
+import Services.userService;
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Container;
@@ -48,7 +48,7 @@ public class StoreHome extends Form {
         Label duke = new Label(dukeImage);
         Label circle = new Label(theme.getImage("flag-round-250.png"));
         Container dukeImageContainer = LayeredLayout.encloseIn(duke, circle);
-        Label name = new Label(Main.MemberNm+" "+Main.MemberLs);
+        Label name = new Label(userService.LoggedUser.getNom()+" "+userService.LoggedUser.getPrenom());
         name.setUIID("DukeName");
         Container dukeContainer = BorderLayout.west(BoxLayout.encloseY(dukeImageContainer, name));
         dukeContainer.setUIID("ProfileContainer");
@@ -65,8 +65,17 @@ public class StoreHome extends Form {
                 });
         getToolbar().addMaterialCommandToSideMenu("Log Out", 
                 FontImage.MATERIAL_LOCK_OPEN, e -> {
-                Login lo = new Login(theme);
-                lo.showBack();
+                Login lo = new Login(this.getClass());
+                lo.show();
+                });
+                getToolbar().addMaterialCommandToSideMenu("Home", 
+                FontImage.MATERIAL_LOCK_OPEN, e -> {
+            ProfileView lo = new ProfileView(this) {
+                @Override
+                protected void showOtherForm(Resources res) {
+                }
+            } ; 
+                    lo.getContainer().show();
                 });
         //---------------------------
         ComboBox cb = new ComboBox();

@@ -6,7 +6,6 @@
 package Entities;
 
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
@@ -95,37 +94,5 @@ public class Oeuvre {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Oeuvre other = (Oeuvre) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (Float.floatToIntBits(this.prix) != Float.floatToIntBits(other.prix)) {
-            return false;
-        }
-        if (this.id_exposition != other.id_exposition) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.titre, other.titre)) {
-            return false;
-        }
-        if (!Objects.equals(this.DateCreate, other.DateCreate)) {
-            return false;
-        }
-        return true;
-    }
     
 }

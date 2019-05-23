@@ -65,7 +65,7 @@ public class ServiceProduit {
     
     public ArrayList<Produit> getList2(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/CDLC/web/app_dev.php/service");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/khaled");  
         
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -80,7 +80,7 @@ public class ServiceProduit {
     }
     public ArrayList<Produit> getListAlpha(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/alpha");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/khaled/alpha");  
         
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -95,7 +95,7 @@ public class ServiceProduit {
     }
     public ArrayList<Produit> getListHigh(){       
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/high");  
+        con.setUrl("http://localhost/CDLC/web/app_dev.php/service/khaled/high");  
         
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -113,7 +113,7 @@ public class ServiceProduit {
     public Produit dolikeno(int idp, int idu){
         
         ConnectionRequest con = new ConnectionRequest();
-        String url = "http://localhost/CDLC/web/app_dev.php/service/like/"+idp+"/"+idu;
+        String url = "http://localhost/CDLC/web/app_dev.php/service/khaled/like/"+idp+"/"+idu;
         con.setUrl(url); 
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -131,7 +131,7 @@ public class ServiceProduit {
     public Produit isLiked(int idp, int idu){
         
         ConnectionRequest con = new ConnectionRequest();
-        String url = "http://localhost/CDLC/web/app_dev.php/service/likecheck/"+idp+"/"+idu;
+        String url = "http://localhost/CDLC/web/app_dev.php/service/khaled/likecheck/"+idp+"/"+idu;
         con.setUrl(url); 
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

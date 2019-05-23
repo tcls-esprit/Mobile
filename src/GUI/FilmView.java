@@ -124,7 +124,7 @@ private Slider createStarRankSlider() {
 
            
 
-            Label aa = new Label("Titre : " + li.getTitre().toString());
+            Label aa = new Label("Title : " + li.getTitre().toString());
             Label desc = new Label("Description : " + li.getDescription().toString());
             
             //c.add(a);
@@ -144,7 +144,7 @@ private Slider createStarRankSlider() {
                 Toolbar tb1 = form.getToolbar();
                 
                 
-                   tb1.addCommandToOverflowMenu("retour", null,new ActionListener() 
+                   tb1.addCommandToOverflowMenu("Back", null,new ActionListener() 
             {
                 @Override
                 public void actionPerformed(ActionEvent evt) 
@@ -175,8 +175,7 @@ private Slider createStarRankSlider() {
            
                 Label lbser = new Label();
                 Container F3 = new Container(BoxLayout.y());
-                Container F4 = new Container(BoxLayout.y());
-                Container F5 = new Container(BoxLayout.x());
+               
                 //Container x=new Container(BoxLayout.x());
 
                 F3.add(lbser);
@@ -202,17 +201,17 @@ private Slider createStarRankSlider() {
                  
                 
                     //lbser.setText(reponse);
-                    nomD = new Label(  "Titre           :" + li.getTitre());
-                    descD2 = new Label("Realisateur :  " + li.getNomrealisateur());
-                    descD3 = new Label("Categorie   :" + li.getCategorie());
-                    descD4 = new Label("Duree          :" + li.getDuree());
+                    nomD = new Label(  "Title           :" + li.getTitre());
+                    descD2 = new Label("Director :  " + li.getNomrealisateur());
+                    descD3 = new Label("Category   :" + li.getCategorie());
+                    descD4 = new Label("Duration          :" + li.getDuree());
                     descD5 = new Label("Rate            :" + avg +"/10");
                     descD = new Label( "Description :" + li.getDescription());
                     
                     btnRate = new Button("Rate");
                     btnVid = new Button("Watch Trailer");
                     btnfav = new Button("Add to favorite");
-                    btnshare = new Button("SareTO Facebook");
+                    
                  
                  //ajouter au fav
                  
@@ -287,7 +286,7 @@ private Slider createStarRankSlider() {
                 F3.add(btnRate);
                 F3.add(btnVid);
                 F3.add(btnfav);
-                F3.add(btnshare);
+              
                 
                 form.add(F3);
                 
@@ -304,20 +303,20 @@ private Slider createStarRankSlider() {
 
         });
          
-         btnshare.addActionListener((e) -> {
-             
-             FilmService serv3 = new FilmService();
-            FacebookShareService fb = new FacebookShareService("EAACEdEose0cBAKH9SvjldA6ZCP27vLOvrpuQxWfEeAFKHWvJuP80JkuUqdSC79pRV5ZC8RewXdsfv3yMOgbzkIXHuotz9fHHwzbnsKmR23AyE6Eo74nLf8DcOLYe4Oqc5LWW3gG8kHVGEY0pBNMpSE6kocg1IzJko10OCgVsN4xZBDzE3BpCSkawQHkT21pmhcO4hZCiYAZDZD");
-        
-                     try {
-                         fb.share("test");
-                         
-                     } catch(IOException ex) {
-                         
-                     }
-        
-
-        });
+//         btnshare.addActionListener((e) -> {
+//             
+//             FilmService serv3 = new FilmService();
+//            FacebookShareService fb = new FacebookShareService("EAACEdEose0cBAKH9SvjldA6ZCP27vLOvrpuQxWfEeAFKHWvJuP80JkuUqdSC79pRV5ZC8RewXdsfv3yMOgbzkIXHuotz9fHHwzbnsKmR23AyE6Eo74nLf8DcOLYe4Oqc5LWW3gG8kHVGEY0pBNMpSE6kocg1IzJko10OCgVsN4xZBDzE3BpCSkawQHkT21pmhcO4hZCiYAZDZD");
+//        
+//                     try {
+//                         fb.share("test");
+//                         
+//                     } catch(IOException ex) {
+//                         
+//                     }
+//        
+//
+//        });
          
         
              form.show();   

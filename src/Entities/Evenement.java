@@ -5,7 +5,6 @@
  */
 package Entities;
 
-import java.util.Objects;
 
 /**
  *
@@ -156,50 +155,7 @@ public class Evenement {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Evenement other = (Evenement) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (Float.floatToIntBits(this.prix) != Float.floatToIntBits(other.prix)) {
-            return false;
-        }
-        if (this.duree != other.duree) {
-            return false;
-        }
-        if (this.id_user != other.id_user) {
-            return false;
-        }
-        if (this.etat != other.etat) {
-            return false;
-        }
-        if (!Objects.equals(this.titre, other.titre)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.image, other.image)) {
-            return false;
-        }
-        if (!Objects.equals(this.type_event, other.type_event)) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        return true;
-    }
+
     
     
 }

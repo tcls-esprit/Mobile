@@ -11,6 +11,7 @@ import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.Resources;
 
 /**
  *
@@ -22,7 +23,6 @@ public class Start {
        
         
          hi = new Form("Movies", BoxLayout.y());
-        hi.setUIID("WithBackground");
        
         Form Films = new Form("Film List", BoxLayout.y());
         Form Program = new Form("Program", BoxLayout.y());
@@ -69,11 +69,10 @@ public class Start {
                  Films.show();
           
         });
-         
-         tb.addMaterialCommandToSideMenu("Program",FontImage.MATERIAL_ALBUM , 
+                  tb.addMaterialCommandToSideMenu("Film List",FontImage.MATERIAL_MOVIE_CREATION, 
                 (ActionListener) (ActionEvent evt) -> { 
-            
-                    tb2.addCommandToOverflowMenu("retour", null,new ActionListener() 
+                    
+                    tb1.addCommandToOverflowMenu("retour", null,new ActionListener() 
             {
                 @Override
                 public void actionPerformed(ActionEvent evt) 
@@ -81,12 +80,24 @@ public class Start {
                     hi.show();
                 }
             } );
-                    
-                Program.show();
+            
+                 Films.show();
           
         });
          
+         tb.addMaterialCommandToSideMenu("Home",FontImage.MATERIAL_HOME , 
+         e->{   ProfileView lo = new ProfileView(this.getF0()) {
+                @Override
+                protected void showOtherForm(Resources res) {
+                }
+            } ; 
+                    lo.getContainer().show();
+                });
          
+             tb.addMaterialCommandToSideMenu("Home",FontImage.MATERIAL_HOME , 
+         e->{         Login lo = new Login(this.getClass());
+                lo.show();
+                });
           tb.addMaterialCommandToSideMenu("Favorite",FontImage.MATERIAL_MOVIE_FILTER , 
                 (ActionListener) (ActionEvent evt) -> { 
             
@@ -109,8 +120,10 @@ public class Start {
     }
     
     public Form getF0(){
+        hi.show();
     return hi;
     }
+    
     }
     
 
